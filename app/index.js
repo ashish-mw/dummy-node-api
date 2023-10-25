@@ -1,12 +1,18 @@
 import express from 'express';
 import morgan from 'morgan';
+import cors from 'cors';
+
 import {
   getAllMovies, findMovieById,
   addMovie, updateMovie, deleteMovieById
 } from './db.js'
 
 const app = express();
+// allow access from any domain
+app.use(cors());
+// logs
 app.use(morgan('tiny'))
+// allow parsing of request body
 app.use(express.json())
 
 // READ
